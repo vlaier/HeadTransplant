@@ -5,7 +5,7 @@ import { CartItem, useCart } from "@/components/Cart/CartContext";
 const ItemElement = ({ item }: { item: CartItem }) => {
   const cartState = useCart();
   return (
-    <div key={item.id} className="flex justify-between">
+    <div className="flex justify-between">
       <Image
         src={item.images[0].src}
         alt={item.images[0].alt}
@@ -36,7 +36,7 @@ const CartPage = () => {
   return (
     <div>
       {cartState.items.map((item) => {
-        return <ItemElement item={item} />;
+        return <ItemElement item={item} key={item.id} />;
       })}
     </div>
   );
