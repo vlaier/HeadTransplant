@@ -57,6 +57,7 @@ export const getStaticProps = async () => {
     props: {
       fallbackData: [products],
     },
+    revalidate: 180,
   };
 };
 //   return {
