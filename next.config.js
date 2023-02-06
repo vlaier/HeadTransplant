@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
-    domains: ["localhost"],
+    domains: ["localhost, serwer2252942.home.pl/autoinstalator/wordpress"],
   },
 };
 
