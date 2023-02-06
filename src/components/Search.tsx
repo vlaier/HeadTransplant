@@ -13,7 +13,6 @@ export const SearchBar = () => {
 
 export const useSort = () => {
   const { params, updateParams: mutate } = useProductsContext();
-  console.log(params);
   return { setSort: mutate };
 };
 

@@ -36,7 +36,6 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
             }
             const updatedItems = prevCartItems.map((prevItem) => {
               if (prevItem.id === item.id) {
-                console.log("Inside");
                 return { ...prevItem, count: prevItem.count + 1 };
               }
               return prevItem;

@@ -48,7 +48,7 @@ export const getStaticProps = async ({
     };
   }
   const res = await client.get(
-    `http://localhost/wordpress/wp-json/wc/v3/products/${params.productId}`
+    `${process.env.URL}/wp-json/wc/v3/products/${params.productId}`
   );
   const product: ProductApiResponse | null = await res.data;
   if (!product) {

@@ -12,11 +12,11 @@ export default async function handler(
 ) {
   const { id } = req.query;
   const attributeResponse = await client.get(
-    `http://localhost/wordpress/wp-json/wc/v3/products/attributes/${id}`
+    `${process.env.URL}/wp-json/wc/v3/products/attributes/${id}`
   );
   const attributeData = await attributeResponse.data;
   const filtersResponse = await client.get(
-    `http://localhost/wordpress/wp-json/wc/v3/products/attributes/${id}/terms`
+    `${process.env.URL}/wp-json/wc/v3/products/attributes/${id}/terms`
   );
   const filtersData = await filtersResponse.data;
   const attributeWithTermsData: AttributeType = {

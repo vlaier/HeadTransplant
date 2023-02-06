@@ -10,7 +10,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const productResponse = await client.get(
-    "http://localhost/wordpress/wp-json/wc/v3/products",
+    `${process.env.URL}/wp-json/wc/v3/products`,
     {
       params: {
         ...req.query,
