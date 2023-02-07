@@ -1,17 +1,10 @@
 import { InferGetStaticPropsType } from "next";
-import { Product, ProductCard } from "@/components/Product/Product";
-import { Sidebar } from "@/components/Product/Sidebar";
 import { client } from "@/utils/utils";
 import { SWRConfig } from "swr";
-import { unstable_serialize } from "swr/infinite";
-import { useProducts } from "@/components/swrHooks";
-import { Loading } from "@/components/Loading";
-
 import {
   ProductsConfig,
   useProductsContext,
 } from "@/components/Products/Context";
-import { SortBar } from "@/components/Search";
 import { InfiniteProducts } from "@/components/InfiniteProducts";
 
 export interface ProductType {
@@ -31,15 +24,7 @@ const ProductsPage = ({
     <ProductsConfig>
       <SWRConfig value={{ fallbackData }}>
         <div className="flex ">
-          <Sidebar
-            options={{
-              filters: {
-                ids: [16, 19],
-              },
-            }}
-          />
           <div className="flex flex-col  grow">
-            <SortBar />
             <InfiniteProducts />
           </div>
         </div>
