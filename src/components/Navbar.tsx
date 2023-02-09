@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import { CartBar } from "./Cart/CartBar";
-import { SearchBar } from "./Search";
+import { Searchbar } from "./Searchbar";
 
 export const Navbar = () => {
   var test = "test";
@@ -10,7 +10,7 @@ export const Navbar = () => {
       <Link href="/">Main</Link>
       <Link href="/produkty">Produkty</Link>
       <Link href="/produkty/infinite">Infinite</Link>
-      <SearchBar />
+      <Searchbar />
       <Link href="/koszyk">
         <CartBar />
       </Link>
