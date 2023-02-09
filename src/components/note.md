@@ -39,3 +39,4 @@
     9. Added middle step this time and commited after configurating storybook but before adding tailwind support.
 
     10. Stopped counting how many times I have started over, but finally it somehows started to magically work YEAAAH! This projects works on duct tape and glue right now it needs some cleaning up and I hope storybook will help me with that.
+    11. Pretty quick decision Storybook is not for me right now.
