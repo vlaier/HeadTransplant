@@ -11,7 +11,13 @@ export const useProducts = (params?: object, options?: object) => {
     ([url, params]) => fetcher(url, params),
     { ...options }
   );
-
+  if (isLoading)
+    return {
+      products: [],
+      isLoading,
+      isError: error,
+      isValidating,
+    };
   return {
     products: data,
     isLoading,
