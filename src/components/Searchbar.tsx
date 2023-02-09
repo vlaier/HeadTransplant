@@ -57,9 +57,11 @@ export const Searchbar = () => {
               />
             </div>
             {isLoading ? (
-              <p>Loading...</p>
+              <p className="px-4 py-2 text-gray-700 text-sm">Ładowanie...</p>
             ) : query && products.length === 0 ? (
-              <p>No results found {query}</p>
+              <p className="px-4 py-2 text-gray-700 text-sm">
+                Nic nie znaleziono
+              </p>
             ) : (
               <Combobox.Options className="max-h-96 overflow-y-auto py-4 text-sm">
                 {products.map((product: any) => {
@@ -68,7 +70,7 @@ export const Searchbar = () => {
                       {({ active }) => (
                         <div
                           className={`space-x-1 px-4 py-2 ${
-                            active ? "bg-gray-500" : ""
+                            active ? "bg-gray-300/90" : ""
                           }`}
                         >
                           {product.name}
