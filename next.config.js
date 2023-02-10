@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     formats: ["image/avif", "image/webp"],
-    domains: ["serwer2252942.home.pl"],
+    domains: ["serwer2252942.home.pl", "localhost"],
   },
 };
 

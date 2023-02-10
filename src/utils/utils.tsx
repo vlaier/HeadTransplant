@@ -1,7 +1,6 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
 import axios from "axios";
 import addOAuthInterceptor, { OAuthInterceptorConfig } from "axios-oauth-1.0a";
-import { env } from "process";
 const isDevelopment = process.env.NODE_ENV === "development";
 const consumerSecret = isDevelopment
   ? process.env.LOCAL_CONSUMER_SECRET
