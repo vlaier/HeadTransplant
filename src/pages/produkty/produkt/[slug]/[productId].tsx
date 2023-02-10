@@ -1,4 +1,4 @@
-import { client, ProductApiResponse } from "@/utils/utils";
+import { client, ProductApiResponse, url } from "@/utils/utils";
 import Image from "next/image";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import React from "react";
@@ -48,7 +48,7 @@ export const getStaticProps = async ({
     };
   }
   const res = await client.get(
-    `${process.env.URL}/wp-json/wc/v3/products/${params.productId}`
+    `${url}/wp-json/wc/v3/products/${params.productId}`
   );
   const product: ProductApiResponse | null = await res.data;
   if (!product) {

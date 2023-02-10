@@ -1,12 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { client } from "@/utils/utils";
+import { client, url } from "@/utils/utils";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   const productResponse = await client.get(
-    `${process.env.URL}/wp-json/wc/v3/products/attributes`,
+    `${url}/wp-json/wc/v3/products/attributes`,
     {
       params: {
         ...req.query,
