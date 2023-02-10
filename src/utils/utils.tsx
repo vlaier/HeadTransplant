@@ -1,11 +1,17 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
 import axios from "axios";
 import addOAuthInterceptor, { OAuthInterceptorConfig } from "axios-oauth-1.0a";
-if (
-  !process.env.CONSUMER_KEY ||
-  !process.env.CONSUMER_SECRET ||
-  !process.env.URL
-) {
+import { env } from "process";
+const isDevelopment = process.env.NODE_ENV === "development";
+const consumerSecret = isDevelopment
+  ? process.env.LOCAL_CONSUMER_SECRET
+  : process.env.CONSUMER_SECRET;
+const consumerKey = isDevelopment
+  ? process.env.LOCAL_CONSUMER_KEY
+  : process.env.CONSUMER_KEY;
+
+export const url = isDevelopment ? process.env.LOCAL_URL : process.env.URL;
+if (!consumerKey || !consumerSecret || !url) {
   throw new Error("Brak danych uwierzytelniających do API");
 }
 
@@ -17,8 +23,8 @@ interface OptionsAuth {
 }
 const options: OptionsAuth = {
   algorithm: "HMAC-SHA1",
-  key: process.env.CONSUMER_KEY,
-  secret: process.env.CONSUMER_SECRET,
+  key: consumerKey,
+  secret: consumerSecret,
 };
 
 addOAuthInterceptor(client, options);

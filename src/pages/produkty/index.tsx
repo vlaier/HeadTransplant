@@ -1,5 +1,5 @@
 import { InferGetStaticPropsType } from "next";
-import { client } from "@/utils/utils";
+import { client, url } from "@/utils/utils";
 import { SWRConfig } from "swr";
 import {
   ProductsConfig,
@@ -33,7 +33,7 @@ const ProductsPage = ({
   );
 };
 export const getStaticProps = async () => {
-  const res = await client.get(`${process.env.URL}/wp-json/wc/v3/products`);
+  const res = await client.get(`${url}/wp-json/wc/v3/products`);
   const products: any[] = await res.data;
   if (!products) {
     return { props: {}, notFound: true };

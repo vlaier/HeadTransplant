@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { client } from "@/utils/utils";
+import { client, url } from "@/utils/utils";
 
 export interface AttributeType {
   id: number;
@@ -12,11 +12,11 @@ export default async function handler(
 ) {
   const { id } = req.query;
   const attributeResponse = await client.get(
-    `${process.env.URL}/wp-json/wc/v3/products/attributes/${id}`
+    `${url}/wp-json/wc/v3/products/attributes/${id}`
   );
   const attributeData = await attributeResponse.data;
   const filtersResponse = await client.get(
-    `${process.env.URL}/wp-json/wc/v3/products/attributes/${id}/terms`
+    `${url}/wp-json/wc/v3/products/attributes/${id}/terms`
   );
   const filtersData = await filtersResponse.data;
   const attributeWithTermsData: AttributeType = {

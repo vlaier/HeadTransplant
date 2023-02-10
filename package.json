@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.10",
@@ -20,6 +21,7 @@
     "axios-oauth-1.0a": "^0.3.6",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.2",
+    "graphql-request": "^5.1.0",
     "next": "13.1.2",
     "next-mdx-remote": "^4.3.0",
     "oauth-1.0a": "^2.2.6",
