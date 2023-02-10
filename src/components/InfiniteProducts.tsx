@@ -4,11 +4,11 @@ import { Loading } from "./Loading";
 import { useProductsContext } from "./Products/Context";
 import { ProductsGrid } from "./ProductsGrid";
 import { useInfiniteProducts } from "./swrHooks";
-
 export const InfiniteProducts = () => {
   const { params } = useProductsContext();
   const { productsArray, isLoading, isError, size, setSize } =
-    useInfiniteProducts({ ...params });
+    useInfiniteProducts();
+
   const ref = useRef(null);
   const isVisible = useOnScreen(ref, { rootMargin: "1200px" });
   useEffect(() => {
