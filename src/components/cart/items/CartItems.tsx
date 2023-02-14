@@ -6,7 +6,7 @@ export const CartItems = ({ items }: { items: ICartItem[] }) => {
     <div>
       {items.map((item) => {
         return (
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-3 " key={item.id}>
             <div className="w-10 h-10">
               <Image
                 src={item.image.sourceUrl}
