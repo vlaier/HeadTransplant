@@ -12,7 +12,7 @@ export const ProductCard: React.FC<IProductGeneral> = ({
 }) => {
   const { addToCart } = useCart();
   return (
-    <div className="rounded-xl shadow-md flex flex-col w-80 md:w-96 mx-auto">
+    <div className="rounded-xl shadow-md flex flex-col w-72 md:w-96 mx-auto">
       <Link href={`/produkty/produkt/${slug}`}>
         <Image
           src={image.sourceUrl}
