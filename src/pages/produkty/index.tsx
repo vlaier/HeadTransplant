@@ -1,58 +1,28 @@
-import { InferGetStaticPropsType } from "next";
-import { client, url } from "@/utils/utils";
-import { SWRConfig } from "swr";
-import {
-  ProductsConfig,
-  useProductsContext,
-} from "@/components/Products/Context";
-import { InfiniteProducts } from "@/components/InfiniteProducts";
+import { GetProductsFeedDocument } from "@/lib/codegenOutput/graphql";
+import { graphqlClient } from "@/lib/client";
+import { graphqlDataToProductsData } from "@/lib/utils";
+import { IProductGeneral } from "@/components/products";
+import { ProductsGrid } from "@/components/products/display/ProductsGrid";
 
-export interface ProductType {
-  id: string;
-  slug: string;
-  name: string;
-  price: string;
-  stock_quantity: number;
-  categories: Array<any>;
-  images: Array<any>;
-}
-
-const ProductsPage = ({
-  fallbackData,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
-  return (
-    <ProductsConfig>
-      <SWRConfig value={{ fallbackData }}>
-        <div className="flex ">
-          <div className="flex flex-col  grow">
-            <InfiniteProducts />
-          </div>
-        </div>
-      </SWRConfig>
-    </ProductsConfig>
-  );
+const ProductsPage = ({ products }: { products: IProductGeneral[] }) => {
+  return <ProductsGrid products={products} />;
 };
+
 export const getStaticProps = async () => {
-  const res = await client.get(`${url}/wp-json/wc/v3/products`);
-  const products: any[] = await res.data;
-  if (!products) {
-    return { props: {}, notFound: true };
+  const products = await graphqlClient
+    .request(GetProductsFeedDocument)
+    .then((data) => data);
+  if (!products || !products.products) {
+    return {
+      props: {},
+      notFound: true,
+    };
   }
   return {
     props: {
-      fallbackData: [products],
+      products: graphqlDataToProductsData(products),
     },
-    revalidate: 180,
   };
 };
-//   return {
-//     props: {
-//       fallback: {
-//         [unstable_serialize(["/api/products/", {}])]: products,
-//         [unstable_serialize(["/api/products/", { page: 1 }])]: products,
-//         [unstable_serialize(["/api/products/", { offset: 0 }])]: products,
-//       },
-//     },
-//   };
-// };
+
 export default ProductsPage;

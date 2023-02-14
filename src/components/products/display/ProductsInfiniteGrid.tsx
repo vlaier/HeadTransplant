@@ -1,11 +1,11 @@
-import { useEffect, useRef } from "react";
-import { useOnScreen } from "./Hooks/hooks";
-import { Loading } from "./Loading";
-import { useProductsContext } from "./Products/Context";
+import { Loading } from "@/components/Loading";
+import { useInfiniteProducts } from "@/components/swrHooks";
+import { useOnScreen } from "@/lib/hooks";
+import { useRef, useEffect } from "react";
+import { IProductsGrid } from "..";
 import { ProductsGrid } from "./ProductsGrid";
-import { useInfiniteProducts } from "./swrHooks";
-export const InfiniteProducts = () => {
-  const { params } = useProductsContext();
+
+export const InfiniteProducts: React.FC<IProductsGrid> = ({ products }) => {
   const { productsArray, isLoading, isError, size, setSize } =
     useInfiniteProducts();
 
@@ -22,7 +22,7 @@ export const InfiniteProducts = () => {
 
   return (
     <div>
-      <ProductsGrid products={productsArray.flat()} />
+      <ProductsGrid products={products} />
       <div ref={ref} className="bg-gray-300 py-2 px-3">
         <Loading />
       </div>

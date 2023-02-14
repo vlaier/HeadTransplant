@@ -1,23 +1,9 @@
 import { useState, useContext, createContext, ReactNode } from "react";
-import { Product } from "../Product/Product";
-export interface CartItem {
-  id: number;
-  slug: string;
-  name: string;
-  price: number;
-  stock_quantity: number;
-  categories: Array<{ slug: string; name: string }>;
-  images: Array<{ src: string; alt: string }>;
-  count: number;
-}
-export interface CartState {
-  items: CartItem[];
-  addToCart: (item: Product) => void;
-  removeFromCart: (item: CartItem) => void;
-}
-export const CartContext = createContext<null | CartState>(null);
+import { ICartItem, ICartContext } from ".";
+
+export const CartContext = createContext<null | ICartContext>(null);
 export const CartContextProvider = ({ children }: { children: ReactNode }) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [cartItems, setCartItems] = useState<ICartItem[]>([]);
   return (
     <CartContext.Provider
       value={{
@@ -28,9 +14,8 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
               (prevItem) => prevItem.id === item.id
             );
             if (!existingItem) {
-              const newItem: CartItem = {
+              const newItem: ICartItem = {
                 ...item,
-                count: 1,
               };
               return [...prevCartItems, newItem];
             }

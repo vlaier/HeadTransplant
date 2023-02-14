@@ -1,12 +1,22 @@
 import { Combobox, Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { useProducts } from "./swrHooks";
+import useSWR from "swr";
 import { useRouter } from "next/router";
+import { graphqlDataToProductsData } from "@/lib/utils";
+import { GetProductsFeedDocument } from "@/lib/codegenOutput/graphql";
+import { graphqlClient } from "@/lib/client";
+
 export const Searchbar = () => {
+  const fetcher = ([query, variables]: [string, object]) =>
+    graphqlClient.request(query, variables);
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const { products, isLoading } = useProducts({ search: query });
+  const { data = [], isLoading } = useSWR(
+    [GetProductsFeedDocument, { where: { search: query } }],
+    fetcher
+  );
+  const products = graphqlDataToProductsData(data);
   const router = useRouter();
   const openModal = () => setIsOpen(true);
   return (
@@ -43,7 +53,7 @@ export const Searchbar = () => {
             className="relative mx-auto max-w-xl rounded-xl bg-gray-100 shadow-2xl ring-1 ring-black/5 divide-y divid-gray-100 overflow-hidden"
             onChange={(product: any) => {
               setIsOpen(false);
-              router.push(`/produkty/produkt/${product.slug}/${product.id}`);
+              router.push(`/produkty/produkt/${product.slug}`);
             }}
           >
             <div className="flex items-center px-4">
@@ -54,6 +64,7 @@ export const Searchbar = () => {
                 }}
                 className="w-full bg-transparent border-0 focus:ring-0 text-sm text-gray-800 placeholder-gray-400 h-12 "
                 placeholder="Search..."
+                autoComplete="off"
               />
             </div>
             {isLoading ? (
@@ -64,7 +75,7 @@ export const Searchbar = () => {
               </p>
             ) : (
               <Combobox.Options className="max-h-96 overflow-y-auto py-4 text-sm">
-                {products.map((product: any) => {
+                {products.map((product) => {
                   return (
                     <Combobox.Option value={product} key={product.id}>
                       {({ active }) => (

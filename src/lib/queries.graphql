@@ -1,29 +1,67 @@
-query GetProductsFeed {
-  products(where: { supportedTypesOnly: true }) {
+query GetProductsFeed($where: RootQueryToProductConnectionWhereArgs) {
+  products(where: $where) {
     edges {
       cursor
       node {
         id
         slug
-        ... on ContentNode {
-          uri
-        }
         name
-        type
         image {
           id
           sourceUrl
           altText
+          mediaDetails {
+            height
+            width
+          }
         }
         ... on SimpleProduct {
-          onSale
           price
-          regularPrice
         }
         ... on VariableProduct {
-          onSale
           price
-          regularPrice
+        }
+      }
+    }
+  }
+}
+query GetDetailedProducts($where: RootQueryToProductConnectionWhereArgs) {
+  products(where: $where) {
+    edges {
+      cursor
+      node {
+        id
+        slug
+
+        name
+
+        image {
+          id
+          sourceUrl
+          altText
+          mediaDetails {
+            height
+            width
+          }
+        }
+        galleryImages {
+          edges {
+            node {
+              id
+              sourceUrl
+              altText
+              mediaDetails {
+                height
+                width
+              }
+            }
+          }
+        }
+        ... on SimpleProduct {
+          price
+        }
+        ... on VariableProduct {
+          price
         }
       }
     }

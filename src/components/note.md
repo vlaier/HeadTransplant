@@ -1,42 +1,32 @@
-## How to do query prediction?
+## New dawn
 
-    - My one idea is to have local array of all product names check the query against them and do 3 requests for the most similar product names.
+I little bit of an apocalypse is happening right now but it will be all for the better. I deleted a lot of code and did some rewriting plus GraphQL is here so changes changes changes. I finallly started working on better folder structure (see products folder) and started to give meaningfull types to my objects instead of any :>
 
-## Things to do:
+## To do
 
-    - Remove Searchbar as a seprate component
-    - Rewrite Searchbar component
-    - Change search logic to make multiple smaller requests but with diffrent parameters.
-    - Add skeleton loading to searchbar results.
+- Start research for authentication - [auth](https://woographql.com/guides/understanding-the-user-session)
+- Start writing cart components
+- Redo infinite scrolling products component
+- Redo pagination
+- Redo sorting
+- Redo filtering
 
-## Would be nice:
+## My problems with infinite scrolling
 
-    - It would be nice if every SearchItem had it's own loading state.
+I continue to think that the infinite scrolling is a great idea and I still want it but I'm starting to have problem with it. It's hard to seprate logic from the description of the looks. Should I call for products inside a component or should products be given as a props? If I would call for a products inside of a components all my problems seems to go away but something doesn't seems right with that solution. On the other hand if I would choose to take products as a prop there is a problem with loading more products I would have to send information from component (child) to a page(parent) that there is a need to load more products this solution seems to be stragne as weel ahhh :< I think I will procrastinate on redoing Infinite Scrolling for now as it seems I don't have any good solutions for my problems.
 
-## Notes to self:
+## My problem with nesting
 
-    - God damn it man do something about types in this project ;<
-    - In the future I'd like to show your most recent search quries as suggestions as a placeholder data. List would be stored in localStorage.
+Just came to a realisation my immageArray (should change name to galleryImages btw) will have a nesting problem. The galleryImages will contain edges and nodes. I should probably think about some kind of a deep checking inside a graphqlDataToProductsData function so I won't have this problem with any component in the future.
+While thinking about it I realised that it's probably a very common problem because of that it probably already have a solution I should look for a built in functions.
+It seems that I was incorrect after spending couple of minutes doing google searches I was unable to find a solution. I have to come back to the idea of writing my own deep check function for nodes and edges that simplyfies returned object to an object I can actually work with inside of a React components. I will start googling deep object checks now.  
+[Dealing with API on the frontend](https://blog.xmartlabs.com/2020/07/09/frontend-architecture-and-best-practices/)
+I think I might want to do something similar to that, maybe inside of an api folder structure I could create controllers that would adapt graphQL data to my personal needs. As author of the article notices practice of creating API controllers seems to add extra layer of protection against changes that might be given to an API in the future (ex: if someone change key from name to productName I would have to make change only in my controller instead of whole app and risking changing wrong variables). I could have my graphql respones denested inside my controller it's worth to take a look at this solution.
 
-## Entries
+## What will happen on 28 of february?
 
-    1. Much of the searchbar is done but there is a problem with state, I want to avoid props drilling and I'm considering adding SearchContext to look up the queries. If I do search results page it could also come in handy.
+I don't think anymore that starting the project from a scratch is a good idea but I think there is a need for a change. I want to start a new next.js project a configure everything inside of it properly and then copy all of the files to the new project and continue from there
 
-    2. I like the idea of sending props to function and then destructuring it inside a function with giving default values like in SearchItem
+## To read
 
-    3. Headless UI joins the game. Let's make a fun SearchBar and see what headless ui really has to offer.
-
-    4. Storybook looks like a handy tool will try to use it for creating searchbar.
-
-    5. Storybook might be cool but I couldn't use it after trying to configure it with tailwindcss. Decided to go back before installing storybook and try again until success. ref.current = 1
-
-    6. ref.current = 2
-
-    7. This time I'm using storybook guide up to the dot
-
-    8. Ok, ref.current = 3. This time I will use this https://storybook.js.org/addons/@storybook/addon-postcss
-
-    9. Added middle step this time and commited after configurating storybook but before adding tailwind support.
-
-    10. Stopped counting how many times I have started over, but finally it somehows started to magically work YEAAAH! This projects works on duct tape and glue right now it needs some cleaning up and I hope storybook will help me with that.
-    11. Pretty quick decision Storybook is not for me right now.
+- [Article 1](https://aroundreact.com/react-best-practices-for-software-design-and-architecture/)

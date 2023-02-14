@@ -1,12 +1,12 @@
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { Layout } from "@/components/Layout";
-import { CartContextProvider } from "@/components/Cart/CartContext";
+import { CartContextProvider } from "@/components/cart/Context";
 import { SWRConfig } from "swr";
-import { swrClientConfig } from "@/lib/swrClientConfig";
+import { swrConfig } from "@/lib/client";
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <SWRConfig value={swrClientConfig}>
+    <SWRConfig value={swrConfig}>
       <CartContextProvider>
         <Layout>
           <Component {...pageProps} />
