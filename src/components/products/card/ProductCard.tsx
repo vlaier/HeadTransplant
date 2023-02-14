@@ -19,10 +19,10 @@ export const ProductCard: React.FC<IProductGeneral> = ({
           alt={image.altText}
           width={image.mediaDetails?.width || 450}
           height={image.mediaDetails?.height || 1000}
+          quality={50}
           className="object-contain h-80 rounded-t-xl w-full m-auto bg-zinc-200"
         />
-      </Link>
-      <Link href={`/produkty/produkt/${slug}`}>
+
         <div className="flex flex-col gap-8 border rounded-b-xl">
           <div>
             <div>{name}</div>
