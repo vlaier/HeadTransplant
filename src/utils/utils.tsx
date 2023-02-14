@@ -1,15 +1,11 @@
 import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
 import axios from "axios";
 import addOAuthInterceptor, { OAuthInterceptorConfig } from "axios-oauth-1.0a";
-const isDevelopment = process.env.NODE_ENV === "development";
-const consumerSecret = isDevelopment
-  ? process.env.LOCAL_CONSUMER_SECRET
-  : process.env.CONSUMER_SECRET;
-const consumerKey = isDevelopment
-  ? process.env.LOCAL_CONSUMER_KEY
-  : process.env.CONSUMER_KEY;
 
-export const url = isDevelopment ? process.env.LOCAL_URL : process.env.URL;
+const consumerSecret = process.env.CONSUMER_SECRET;
+const consumerKey = process.env.CONSUMER_KEY;
+
+export const url = process.env.URL;
 if (!consumerKey || !consumerSecret || !url) {
   throw new Error("Brak danych uwierzytelniających do API");
 }
