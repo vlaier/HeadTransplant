@@ -1,6 +1,5 @@
 import { ICartItem, ICartState } from "..";
 import Image from "next/image";
-import { useCart } from "../Context";
 export const CartItems = ({ items }: { items: ICartItem[] }) => {
   return (
     <div>
