@@ -30,3 +30,7 @@ I don't think anymore that starting the project from a scratch is a good idea bu
 ## To read
 
 - [Article 1](https://aroundreact.com/react-best-practices-for-software-design-and-architecture/)
+
+## CartContextState
+
+Cart state is getting more complex and I think it's time to convert it into useReducer type,

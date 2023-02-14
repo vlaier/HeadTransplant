@@ -1,6 +1,12 @@
-import { ICartItem, ICartState } from "..";
+import { ICartItem } from "..";
 import Image from "next/image";
-export const CartItems = ({ items }: { items: ICartItem[] }) => {
+export const CartItems = ({
+  items,
+  setCount,
+}: {
+  items: ICartItem[];
+  setCount: (item: ICartItem, count: number) => void;
+}) => {
   return (
     <div>
       {items.map((item) => {
@@ -16,6 +22,13 @@ export const CartItems = ({ items }: { items: ICartItem[] }) => {
             </div>
             <div>
               {item.name}-{item.count}
+            </div>
+            <div>
+              <input
+                type="number"
+                value={item.count}
+                onChange={(e) => setCount(item, parseInt(e.target.value))}
+              />
             </div>
           </div>
         );

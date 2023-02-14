@@ -9,4 +9,5 @@ export interface ICartState {
 interface ICartContext extends ICartState {
   addToCart: (item: ICartItem) => void;
   removeFromCart: (item: ICartItem) => void;
+  setItemCount: (item: ICartItem, count: number) => void;
 }

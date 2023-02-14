@@ -36,6 +36,18 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
             return filtredItems;
           });
         },
+        setItemCount: (item, count) => {
+          setCartItems((prevCartItems) => {
+            const newItemCount = count >= 0 ? count : 0;
+            const newCartItems = prevCartItems.map((newItem) => {
+              if (newItem.id === item.id) {
+                return { ...item, count: newItemCount };
+              }
+              return newItem;
+            });
+            return newCartItems;
+          });
+        },
       }}
     >
       {children}
