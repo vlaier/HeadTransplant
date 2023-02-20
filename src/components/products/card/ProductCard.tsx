@@ -3,13 +3,8 @@ import Image from "next/image";
 import { useCart } from "@/components/cart/Context";
 import { IProductGeneral } from "..";
 
-export const ProductCard: React.FC<IProductGeneral> = ({
-  id,
-  name,
-  slug,
-  image,
-  price,
-}) => {
+export const ProductCard: React.FC<IProductGeneral> = (props) => {
+  const { id, name, slug, image, price } = { ...props };
   const { addToCart } = useCart();
   return (
     <div className="rounded-xl shadow-md flex flex-col w-72 md:w-96 mx-auto">
