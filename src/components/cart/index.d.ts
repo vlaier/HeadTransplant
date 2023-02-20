@@ -4,7 +4,7 @@ export interface ICartItem extends IProductGeneral {
   count: number;
 }
 export interface ICartState {
-  items: CartItem[];
+  items: ICartItem[];
 }
 interface ICartContext extends ICartState {
   addToCart: (item: ICartItem) => void;
