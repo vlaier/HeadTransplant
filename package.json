@@ -24,7 +24,6 @@
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",
-    "@types/woocommerce__woocommerce-rest-api": "^1.0.2",
     "axios": "^1.2.4",
     "axios-oauth-1.0a": "^0.3.6",
     "eslint": "8.32.0",
