@@ -1,4 +1,4 @@
-import { IProductGeneral } from "../products";
+import { IProductGeneral } from '../products';
 
 export interface ICartItem extends IProductGeneral {
   count: number;

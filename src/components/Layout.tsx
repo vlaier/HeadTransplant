@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
-import { Navbar } from "./navigation/navbar/Navbar";
-import { mockNavbarProps } from "./navigation/navbar/Navbar.mocks";
+import React, { ReactNode } from 'react';
+import { Navbar } from './navigation/navbar/Navbar';
+import { mockNavbarProps } from './navigation/navbar/Navbar.mocks';
 export const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>

@@ -1,17 +1,17 @@
-import { Combobox, Dialog, Transition } from "@headlessui/react";
-import { Fragment, useState } from "react";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import useSWR from "swr";
-import { useRouter } from "next/router";
-import { graphqlDataToProductsData } from "@/lib/utils";
-import { GetProductsFeedDocument } from "@/lib/codegenOutput/graphql";
-import { graphqlClient } from "@/lib/client";
+import { Combobox, Dialog, Transition } from '@headlessui/react';
+import { Fragment, useState } from 'react';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import useSWR from 'swr';
+import { useRouter } from 'next/router';
+import { graphqlDataToProductsData } from '@/lib/utils';
+import { GetProductsFeedDocument } from '@/lib/codegenOutput/graphql';
+import { graphqlClient } from '@/lib/client';
 
 export const Searchbar = () => {
   const fetcher = ([query, variables]: [string, object]) =>
     graphqlClient.request(query, variables);
   const [isOpen, setIsOpen] = useState(false);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const { data = [], isLoading } = useSWR(
     [GetProductsFeedDocument, { where: { search: query } }],
     fetcher
@@ -81,7 +81,7 @@ export const Searchbar = () => {
                       {({ active }) => (
                         <div
                           className={`space-x-1 px-4 py-2 ${
-                            active ? "bg-gray-300/90" : ""
+                            active ? 'bg-gray-300/90' : ''
                           }`}
                         >
                           {product.name}

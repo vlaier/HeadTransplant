@@ -1,5 +1,5 @@
-import { IProductsGrid } from "..";
-import { ProductCard } from "../card/ProductCard";
+import { IProductsGrid } from '..';
+import { ProductCard } from '../card/ProductCard';
 export const ProductsGrid: React.FC<IProductsGrid> = (props) => {
   const { products } = { ...props };
   return (

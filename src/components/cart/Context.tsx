@@ -1,5 +1,5 @@
-import { useState, useContext, createContext, ReactNode } from "react";
-import { ICartItem, ICartContext } from ".";
+import { useState, useContext, createContext, ReactNode } from 'react';
+import { ICartItem, ICartContext } from '.';
 
 export const CartContext = createContext<null | ICartContext>(null);
 export const CartContextProvider = ({ children }: { children: ReactNode }) => {
@@ -57,7 +57,7 @@ export const CartContextProvider = ({ children }: { children: ReactNode }) => {
 export const useCart = () => {
   const cartState = useContext(CartContext);
   if (!cartState) {
-    throw new Error("You forogot to add CartStateContextProvider");
+    throw new Error('You forogot to add CartStateContextProvider');
   }
   return cartState;
 };

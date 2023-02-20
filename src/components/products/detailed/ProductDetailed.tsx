@@ -1,4 +1,4 @@
-import { IProductDetailed } from "..";
+import { IProductDetailed } from '..';
 
 export const ProductDetailed: React.FC<IProductDetailed> = (props) => {
   const { id, name, slug, image, price } = { ...props };

@@ -1,13 +1,13 @@
-import axios from "axios";
-import { useState } from "react";
-import useSWR from "swr";
-import useInfiniteSWR, { unstable_serialize } from "swr/infinite";
+import axios from 'axios';
+import { useState } from 'react';
+import useSWR from 'swr';
+import useInfiniteSWR, { unstable_serialize } from 'swr/infinite';
 const fetcher = (url: string, params?: Object) =>
   axios.get(url, { params: { ...params } }).then((res) => res.data);
 
 export const useProducts = (params?: object, options?: object) => {
   const { data, error, isLoading, isValidating } = useSWR(
-    ["/api/products/", params],
+    ['/api/products/', params],
     ([url, params]) => fetcher(url, params),
     { ...options }
   );

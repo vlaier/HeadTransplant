@@ -1,5 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { client, url } from "@/utils/utils";
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { client, url } from '@/utils/utils';
 
 export interface AttributeType {
   id: number;

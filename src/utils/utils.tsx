@@ -1,23 +1,23 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote/dist/types";
-import axios from "axios";
-import addOAuthInterceptor, { OAuthInterceptorConfig } from "axios-oauth-1.0a";
+import { MDXRemoteSerializeResult } from 'next-mdx-remote/dist/types';
+import axios from 'axios';
+import addOAuthInterceptor, { OAuthInterceptorConfig } from 'axios-oauth-1.0a';
 
 const consumerSecret = process.env.CONSUMER_SECRET;
 const consumerKey = process.env.CONSUMER_KEY;
 
 export const url = process.env.URL;
 if (!consumerKey || !consumerSecret || !url) {
-  throw new Error("Brak danych uwierzytelniających do API");
+  throw new Error('Brak danych uwierzytelniających do API');
 }
 
 export const client = axios;
 interface OptionsAuth {
-  algorithm: "HMAC-SHA1" | "HMAC-SHA256";
+  algorithm: 'HMAC-SHA1' | 'HMAC-SHA256';
   key: string;
   secret: string;
 }
 const options: OptionsAuth = {
-  algorithm: "HMAC-SHA1",
+  algorithm: 'HMAC-SHA1',
   key: consumerKey,
   secret: consumerSecret,
 };
@@ -33,10 +33,10 @@ export interface ProductApiResponse {
   date_created_gmt: string;
   date_modified: string;
   date_modified_gmt: string;
-  type: "simple" | "variable" | "grouped" | "external";
-  status: "any" | "draft" | "pending" | "private" | "publish";
+  type: 'simple' | 'variable' | 'grouped' | 'external';
+  status: 'any' | 'draft' | 'pending' | 'private' | 'publish';
   featured: boolean;
-  catalog_visibility: "visible" | "catalog" | "search" | "hidden";
+  catalog_visibility: 'visible' | 'catalog' | 'search' | 'hidden';
 
   description: string;
   serializedDescription: MDXRemoteSerializeResult<
@@ -63,12 +63,12 @@ export interface ProductApiResponse {
   download_expiry: number;
   external_url: string;
   button_text: string;
-  tax_status: "taxable" | "shipping" | "none";
-  tax_class: "standard" | "reduced-rate" | "zero-rate";
+  tax_status: 'taxable' | 'shipping' | 'none';
+  tax_class: 'standard' | 'reduced-rate' | 'zero-rate';
   manage_stock: boolean;
   stock_quantity: number;
-  stock_status: "instock" | "outofstock" | "onbackorder";
-  backorders: "no" | "notify" | "yes";
+  stock_status: 'instock' | 'outofstock' | 'onbackorder';
+  backorders: 'no' | 'notify' | 'yes';
   backorders_allowed: boolean;
   backordered: boolean;
   sold_individually: boolean;

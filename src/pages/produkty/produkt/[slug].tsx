@@ -1,8 +1,8 @@
-import { graphqlClient } from "@/lib/client";
-import { GetDetailedProductsDocument } from "@/lib/codegenOutput/graphql";
-import { graphqlDataToProductsData } from "@/lib/utils";
-import { InferGetStaticPropsType, GetStaticPropsContext } from "next";
-import { useRouter } from "next/router";
+import { graphqlClient } from '@/lib/client';
+import { GetDetailedProductsDocument } from '@/lib/codegenOutput/graphql';
+import { graphqlDataToProductsData } from '@/lib/utils';
+import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
+import { useRouter } from 'next/router';
 
 export const ProductPage = ({
   product,
@@ -44,5 +44,5 @@ export const getStaticProps = async ({
   };
 };
 export const getStaticPaths = async () => {
-  return { paths: [], fallback: "blocking" };
+  return { paths: [], fallback: 'blocking' };
 };

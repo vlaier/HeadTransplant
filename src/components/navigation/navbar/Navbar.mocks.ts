@@ -1,9 +1,9 @@
-import { INavbar } from "..";
+import { INavbar } from '..';
 
 const base: INavbar = {
   pages: [
-    { name: "Main", href: "/" },
-    { name: "Produkty", href: "/produkty" },
+    { name: 'Main', href: '/' },
+    { name: 'Produkty', href: '/produkty' },
   ],
 };
 

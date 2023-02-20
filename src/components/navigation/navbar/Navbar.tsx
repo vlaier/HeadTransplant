@@ -1,7 +1,7 @@
-import { Cartbar } from "../../cart/bar/Cartbar";
-import { Searchbar } from "../searchbar/base/Searchbar";
-import Link from "next/link";
-import { INavbar } from "..";
+import { Cartbar } from '../../cart/bar/Cartbar';
+import { Searchbar } from '../searchbar/base/Searchbar';
+import Link from 'next/link';
+import { INavbar } from '..';
 
 export const Navbar: React.FC<INavbar> = ({ pages }) => {
   return (

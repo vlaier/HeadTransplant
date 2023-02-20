@@ -1,7 +1,7 @@
-import Link from "next/link";
-import Image from "next/image";
-import { useCart } from "@/components/cart/Context";
-import { IProductGeneral } from "..";
+import Link from 'next/link';
+import Image from 'next/image';
+import { useCart } from '@/components/cart/Context';
+import { IProductGeneral } from '..';
 
 export const ProductCard: React.FC<IProductGeneral> = (props) => {
   const { id, name, slug, image, price } = { ...props };

@@ -1,4 +1,4 @@
-import { GetDetailedProductsQuery } from "./codegenOutput/graphql";
+import { GetDetailedProductsQuery } from './codegenOutput/graphql';
 // ADD DEEP CHECK FOR EDGES AND NODES
 export const graphqlDataToProductsData = (data: GetDetailedProductsQuery) => {
   if (!data.products) return [];

@@ -1,5 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import { client, url } from "@/utils/utils";
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { client, url } from '@/utils/utils';
 
 export default async function handler(
   req: NextApiRequest,

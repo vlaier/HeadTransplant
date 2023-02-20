@@ -1,17 +1,17 @@
-import { GetProductsFeedDocument } from "@/lib/codegenOutput/graphql";
-import useSWR, { unstable_serialize } from "swr";
-import { graphqlDataToProductsData } from "@/lib/utils";
-import { IProductGeneral } from "@/components/products";
-import { ProductsGrid } from "@/components/products/display/ProductsGrid";
-import { graphqlClient } from "@/lib/client";
-import { InferGetStaticPropsType, GetStaticPropsContext } from "next";
-import { fetcher } from "../../lib/client";
-import request from "graphql-request";
+import { GetProductsFeedDocument } from '@/lib/codegenOutput/graphql';
+import useSWR, { unstable_serialize } from 'swr';
+import { graphqlDataToProductsData } from '@/lib/utils';
+import { IProductGeneral } from '@/components/products';
+import { ProductsGrid } from '@/components/products/display/ProductsGrid';
+import { graphqlClient } from '@/lib/client';
+import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
+import { fetcher } from '../../lib/client';
+import request from 'graphql-request';
 const ProductsPage = ({
   fallback,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const endpoint =
-    "https://serwer2252942.home.pl/autoinstalator/wordpress/graphql";
+    'https://serwer2252942.home.pl/autoinstalator/wordpress/graphql';
 
   const { data, isLoading, error } = useSWR(
     [GetProductsFeedDocument],
@@ -27,7 +27,7 @@ const ProductsPage = ({
 export default ProductsPage;
 export const getStaticProps = async () => {
   const endpoint =
-    "https://serwer2252942.home.pl/autoinstalator/wordpress/graphql";
+    'https://serwer2252942.home.pl/autoinstalator/wordpress/graphql';
   const data = await graphqlClient
     .request(GetProductsFeedDocument, {})
     .then((data) => data);

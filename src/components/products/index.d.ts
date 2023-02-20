@@ -8,7 +8,7 @@ export interface IProductDetailed {
 }
 export type IProductGeneral = Pick<
   IProductDetailed,
-  "id" | "name" | "slug" | "image" | "price"
+  'id' | 'name' | 'slug' | 'image' | 'price'
 >;
 export interface IProductsGrid {
   products: IProductGeneral[];

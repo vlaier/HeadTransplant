@@ -1,7 +1,7 @@
-import { ICartState } from "..";
-import Image from "next/image";
-import { TrashIcon } from "@heroicons/react/24/outline";
-import { useCart } from "../Context";
+import { ICartState } from '..';
+import Image from 'next/image';
+import { TrashIcon } from '@heroicons/react/24/outline';
+import { useCart } from '../Context';
 
 export const CartItems: React.FC = () => {
   const { items, setItemCount: setCount, removeFromCart } = useCart();

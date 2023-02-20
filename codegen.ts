@@ -1,12 +1,12 @@
-import type { CodegenConfig } from "@graphql-codegen/cli";
+import type { CodegenConfig } from '@graphql-codegen/cli';
 
 const config: CodegenConfig = {
   overwrite: true,
-  schema: "http://localhost/wordpress/graphql",
-  documents: "src/lib/*.graphql",
+  schema: 'http://localhost/wordpress/graphql',
+  documents: 'src/lib/*.graphql',
   generates: {
-    "src/lib/codegenOutput/": {
-      preset: "client",
+    'src/lib/codegenOutput/': {
+      preset: 'client',
       plugins: [],
     },
   },
