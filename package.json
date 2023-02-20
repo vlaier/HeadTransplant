@@ -8,7 +8,7 @@
     "npm": "please use yarn"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -55,6 +55,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.13",
     "babel-loader": "^8.3.0",
+    "cross-env": "^7.0.3",
     "husky": "^8.0.3",
     "postcss": "^8.4.19",
     "prettier": "^2.8.4",
