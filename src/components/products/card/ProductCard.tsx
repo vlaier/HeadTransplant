@@ -1,6 +1,6 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import { useCart } from '@/components/cart/Context';
+import Image from 'next/image';
+import Link from 'next/link';
 import { IProductGeneral } from '..';
 
 export const ProductCard: React.FC<IProductGeneral> = (props) => {
@@ -21,7 +21,7 @@ export const ProductCard: React.FC<IProductGeneral> = (props) => {
         <div className="flex flex-col gap-8 border rounded-b-xl">
           <div>
             <div>{name}</div>
-            <div>{price} zł</div>
+            <div>{price}</div>
           </div>
 
           <button
