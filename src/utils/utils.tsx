@@ -1,6 +1,6 @@
-import { MDXRemoteSerializeResult } from 'next-mdx-remote/dist/types';
 import axios from 'axios';
-import addOAuthInterceptor, { OAuthInterceptorConfig } from 'axios-oauth-1.0a';
+import addOAuthInterceptor from 'axios-oauth-1.0a';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote/dist/types';
 
 const consumerSecret = process.env.CONSUMER_SECRET;
 const consumerKey = process.env.CONSUMER_KEY;

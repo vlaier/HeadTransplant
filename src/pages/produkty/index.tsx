@@ -9,10 +9,7 @@ import { fetcher } from '../../lib/client';
 const ProductsPage = ({
   fallback,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const endpoint =
-    'https://serwer2252942.home.pl/autoinstalator/wordpress/graphql';
-
-  const { data, isLoading, error } = useSWR(
+  const { data, error } = useSWR(
     [GetProductsFeedDocument],
     ([query]) => fetcher(query),
     { fallback }
@@ -25,8 +22,6 @@ const ProductsPage = ({
 
 export default ProductsPage;
 export const getStaticProps = async () => {
-  const endpoint =
-    'https://serwer2252942.home.pl/autoinstalator/wordpress/graphql';
   const data = await graphqlClient
     .request(GetProductsFeedDocument, {})
     .then((data) => data);

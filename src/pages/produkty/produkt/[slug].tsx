@@ -1,13 +1,11 @@
 import { graphqlClient } from '@/lib/client';
 import { GetDetailedProductsDocument } from '@/lib/codegenOutput/graphql';
 import { graphqlDataToProductsData } from '@/lib/utils';
-import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
-import { useRouter } from 'next/router';
+import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
 export const ProductPage = ({
   product,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const router = useRouter();
   if (!product) return <div>Nie udało się załadować produktu</div>;
   return <div>{JSON.stringify(product)}</div>;
 };

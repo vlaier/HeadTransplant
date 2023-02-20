@@ -1,7 +1,7 @@
 import { Loading } from '@/components/Loading';
 import { useInfiniteProducts } from '@/components/swrHooks';
 import { useOnScreen } from '@/lib/hooks';
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { IProductsGrid } from '..';
 import { ProductsGrid } from './ProductsGrid';
 
@@ -15,7 +15,7 @@ export const InfiniteProducts: React.FC<IProductsGrid> = ({ products }) => {
     if (isVisible && !isLoading) {
       setSize(size + 1);
     }
-  }, [isVisible]);
+  }, [isVisible, isLoading]);
 
   if (!productsArray) return <Loading />;
   if (isError) return <div>{JSON.stringify(isError)}</div>;

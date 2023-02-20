@@ -1,6 +1,6 @@
 import { IProductDetailed } from '..';
 
 export const ProductDetailed: React.FC<IProductDetailed> = (props) => {
-  const { id, name, slug, image, price } = { ...props };
+  const { name } = { ...props };
   return <div>{name}</div>;
 };

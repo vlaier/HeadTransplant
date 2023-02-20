@@ -1,4 +1,4 @@
-import { request, GraphQLClient, RequestDocument } from 'graphql-request';
+import { GraphQLClient, RequestDocument } from 'graphql-request';
 export const graphqlClient = new GraphQLClient(
   `https://serwer2252942.home.pl/autoinstalator/wordpress/graphql`
 );
