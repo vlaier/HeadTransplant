@@ -1,12 +1,11 @@
-import { GetProductsFeedDocument } from '@/lib/codegenOutput/graphql';
-import useSWR, { unstable_serialize } from 'swr';
-import { graphqlDataToProductsData } from '@/lib/utils';
 import { IProductGeneral } from '@/components/products';
 import { ProductsGrid } from '@/components/products/display/ProductsGrid';
 import { graphqlClient } from '@/lib/client';
-import { InferGetStaticPropsType, GetStaticPropsContext } from 'next';
+import { GetProductsFeedDocument } from '@/lib/codegenOutput/graphql';
+import { graphqlDataToProductsData } from '@/lib/utils';
+import { InferGetStaticPropsType } from 'next';
+import useSWR, { unstable_serialize } from 'swr';
 import { fetcher } from '../../lib/client';
-import request from 'graphql-request';
 const ProductsPage = ({
   fallback,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
@@ -43,6 +42,7 @@ export const getStaticProps = async () => {
       fallback: {
         [unstable_serialize([GetProductsFeedDocument])]: data,
       },
+      revalidate: 90,
     },
   };
 };
