@@ -3,8 +3,9 @@ export interface IProductDetailed {
   name: string;
   slug: string;
   image: IProductImage;
-  price: number;
+  price?: number;
   imageArray?: IProductImage[];
+  description?: string;
 }
 export type IProductGeneral = Pick<
   IProductDetailed,
