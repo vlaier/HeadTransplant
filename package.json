@@ -21,8 +21,8 @@
     "@heroicons/react": "^2.0.15",
     "@next/font": "13.1.2",
     "@tailwindcss/forms": "^0.5.3",
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.27",
+    "@types/node": "^18.14.0",
+    "@types/react": "^18.0.28",
     "@types/react-dom": "18.0.10",
     "axios": "^1.2.4",
     "axios-oauth-1.0a": "^0.3.6",
@@ -38,7 +38,7 @@
     "react-dom": "18.2.0",
     "sharp": "^0.31.3",
     "swr": "^2.0.3",
-    "typescript": "4.9.4",
+    "typescript": "^4.9.5",
     "util": "^0.12.5"
   },
   "devDependencies": {
